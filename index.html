@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Online Test 1</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+  
+  body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: powderblue;
+  }
+
+/* Main layout for quiz page */
+.home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: powderblue;
+    min-height: 100vh;
+}
+
+.main-div {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Header with timer and title */
+.header-div {
+    background-color: #1877f2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    color: white;
+}
+
+.title-div {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-para {
+    font-size: 22px;
+    text-align: center;
+}
+
+.timer-div {
+    flex: 1;
+    background-color: #c3cbd5;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Main section */
+.section-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Question and Answer side */
+.ansQues-div {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+
+/* Question text */
+.ques-div {
+    background-color: aliceblue;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Answer options */
+.ans-div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Answer radio options */
+.onlyAns-div {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.8;
+}
+
+/* Navigation buttons */
+.control-div {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #eee;
+}
+
+/* Navigation buttons */
+.nav-div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* Individual numbered buttons */
+.btn {
+    height: 35px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Submit button */
+.submit-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn {
+    height: 40px;
+    width: 120px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .section-div {
+        flex-direction: column;
+    }
+
+    .sidebar-div {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-div {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .title-para {
+        font-size: 18px;
+    }
+
+    .onlyAns-div {
+        font-size: 16px;
+    }
+
+    .control-btn {
+        font-size: 14px;
+    }
+
+    .nav-div {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+input[type="radio"]:disabled + label {
+    color: gray;
+    cursor: not-allowed;
+}
+
+
+/* index 0 */
+
+/* Reset and base styles */
+
+  
+  /* ---------- MAIN PAGE LAYOUT ---------- */
+  
+  .mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .pageDiv {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Header section */
+  .titleDiv {
+    background-color: #1877f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .titlePara {
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Link card */
+  .linkDiv {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .linkDiv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .linkPara {
+    font-size: 20px;
+  }
+  
+  /* Styled link */
+  #testLink {
+    color: #1877f2;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #eaf2ff;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  #testLink:hover {
+    background-color: #1877f2;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 500px) {
+    .titlePara {
+      font-size: 22px;
+    }
+  
+    .linkPara {
+      font-size: 18px;
+    }
+  
+    #testLink {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  }
+  
+    </style>
+</head>
+<body>
+    <div class="home-div">
+        <div class="main-div">
+            <div class="header-div">
+                <div class="title-div">
+                    <p class="title-para">Online Test Series</p>
+                </div>
+                <div class="timer-div">00:00</div>
+            </div>
+            <div class="section-div">
+                <div class="ansQues-div">
+                    <div class="ques-div">Question 1: What is the capital of Australia?</div>
+                    <div class="ans-div">
+                        <div class="onlyAns-div">
+                            <label><input type="radio" name="answer" value="ans1">1. Sydney</label></code> </label><br>
+                            <label><input type="radio" name="answer" value="ans2">2. Melbourne</label><br>
+                            <label><input type="radio" name="answer" value="ans3">3. Canberra</label><br>
+                            <label><input type="radio" name="answer" value="ans4">4. Perth</label>
+                        </div>
+                        <div class="control-div">
+                            <button class="control-btn prev">prev</button>
+                            <button class="control-btn clear">clear</button>
+                            <button class="control-btn next">next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-div">
+                    <div class="nav-div">
+                        <button class="btn1 btn">1</button>
+                    <button class="btn2 btn">2</button>
+                    <button class="btn3 btn">3</button>
+                    <button class="btn4 btn">4</button>
+                    <button class="btn5 btn">5</button>
+                    <button class="btn6 btn">6</button>
+                    <button class="btn7 btn">7</button>
+                    <button class="btn8 btn">8</button>
+                    <button class="btn9 btn">9</button>
+                    <button class="btn10 btn">10</button>
+                    <button class="btn11 btn">11</button>
+                    <button class="btn12 btn">12</button>
+                    <button class="btn13 btn">13</button>
+                    <button class="btn14 btn">14</button>
+                    <button class="btn15 btn">15</button>
+                    <button class="btn16 btn">16</button>
+                    <button class="btn17 btn">17</button>
+                    <button class="btn18 btn">18</button>
+                    <button class="btn19 btn">19</button>
+                    <button class="btn20 btn">20</button>
+                    <button class="btn21 btn">21</button>
+                    <button class="btn22 btn">22</button>
+                    <button class="btn23 btn">23</button>
+                    <button class="btn24 btn">24</button>
+                    <button class="btn25 btn">25</button>
+                    <button class="btn26 btn">26</button>
+                    <button class="btn27 btn">27</button>
+                    <button class="btn28 btn">28</button>
+                    <button class="btn29 btn">29</button>
+                    <button class="btn30 btn">30</button>
+                    </div>
+                    
+                    <div class="submit-div">
+                        <button class="submit-btn">submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      
+const quesElement = document.querySelector('.ques-div');
+const onlyAnsElement = document.querySelector('.onlyAns-div');
+const nextBtnElement = document.querySelector('.next');
+const prevBtnElement = document.querySelector('.prev');
+const clearBtnElement = document.querySelector('.clear');
+const sidebarButtons = document.querySelectorAll('.nav-div .btn');
+const timerDiv = document.querySelector('.timer-div');
+const submitDiv = document.querySelector('.submit-div');
+let submitBtnElement = document.querySelector('.submit-btn');
+
+let i = 0;
+let selectedAnswers = [];
+
+function setSidebarButtonsDisabled(state) {
+    sidebarButtons.forEach(btn => btn.disabled = state);
+}
+
+function setRadioButtonsDisabled(state) {
+    const inputs = onlyAnsElement.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => input.disabled = state);
+}
+const dataObject = {
+  question1: "Question 1: What is the capital of Australia?",
+  option1: ["Sydney", "Melbourne", "Canberra", "Perth"],
+
+  question2: "Question 2: Who wrote the play 'Romeo and Juliet'?",
+  option2: ["William Wordsworth", "William Shakespeare", "Jane Austen", "Charles Dickens"],
+
+  question3: "Question 3: What is the boiling point of water at sea level?",
+  option3: ["90°C", "100°C", "110°C", "120°C"],
+
+  question4: "Question 4: Which is the largest planet in our solar system?",
+  option4: ["Earth", "Mars", "Jupiter", "Saturn"],
+
+  question5: "Question 5: Who discovered gravity?",
+  option5: ["Albert Einstein", "Isaac Newton", "Galileo", "Marie Curie"],
+
+  question6: "Question 6: What is the longest river in the world?",
+  option6: ["Amazon", "Yangtze", "Nile", "Ganga"],
+
+  question7: "Question 7: In which year did World War II end?",
+  option7: ["1942", "1945", "1939", "1950"],
+
+  question8: "Question 8: What gas do plants absorb from the atmosphere?",
+  option8: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+
+  question9: "Question 9: Who is the author of 'Wings of Fire'?",
+  option9: ["Dr. B.R. Ambedkar", "Dr. A.P.J. Abdul Kalam", "Jawaharlal Nehru", "Kiran Bedi"],
+
+  question10: "Question 10: What is the chemical symbol for Gold?",
+  option10: ["Au", "Ag", "Gd", "Go"],
+
+  question11: "Question 11: Which country gifted the Statue of Liberty to the USA?",
+  option11: ["England", "France", "Germany", "Canada"],
+
+  question12: "Question 12: How many continents are there in the world?",
+  option12: ["5", "6", "7", "8"],
+
+  question13: "Question 13: What is the hardest natural substance on Earth?",
+  option13: ["Gold", "Iron", "Diamond", "Granite"],
+
+  question14: "Question 14: Who was the first man to walk on the moon?",
+  option14: ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Rakesh Sharma"],
+
+  question15: "Question 15: What is the smallest prime number?",
+  option15: ["0", "1", "2", "3"],
+
+  question16: "Question 16: Which Indian state is known as the 'Land of Five Rivers'?",
+  option16: ["Uttar Pradesh", "Punjab", "Haryana", "Gujarat"],
+
+  question17: "Question 17: What is the national currency of Japan?",
+  option17: ["Won", "Rupee", "Yen", "Ringgit"],
+
+  question18: "Question 18: Which vitamin is produced by the human body in sunlight?",
+  option18: ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+
+  question19: "Question 19: How many players are there in a cricket team?",
+  option19: ["9", "10", "11", "12"],
+
+  question20: "Question 20: Which organ purifies our blood?",
+  option20: ["Lungs", "Liver", "Kidney", "Heart"],
+
+  question21: "Question 21: What does 'HTTP' stand for?",
+  option21: ["HyperText Transfer Protocol", "Hyper Transfer Text Protocol", "HighText Transfer Protocol", "Hyper Terminal Transfer Process"],
+
+  question22: "Question 22: Who was the first President of India?",
+  option22: ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Dr. Rajendra Prasad", "Sardar Patel"],
+
+  question23: "Question 23: Which instrument is used to measure temperature?",
+  option23: ["Barometer", "Speedometer", "Thermometer", "Altimeter"],
+
+  question24: "Question 24: Which planet is known as the Red Planet?",
+  option24: ["Earth", "Venus", "Jupiter", "Mars"],
+
+  question25: "Question 25: What is the full form of 'ATM'?",
+  option25: ["All Time Money", "Any Time Money", "Automated Teller Machine", "Auto Teller Mechanism"],
+
+  question26: "Question 26: Who invented the telephone?",
+  option26: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "James Watt"],
+
+  question27: "Question 27: Which gas is most abundant in the Earth's atmosphere?",
+  option27: ["Oxygen", "Hydrogen", "Carbon Dioxide", "Nitrogen"],
+
+  question28: "Question 28: What is the square root of 144?",
+  option28: ["10", "11", "12", "13"],
+
+  question29: "Question 29: In which ocean is the Bermuda Triangle located?",
+  option29: ["Indian", "Pacific", "Atlantic", "Arctic"],
+
+  question30: "Question 30: What is the national animal of India?",
+  option30: ["Elephant", "Tiger", "Lion", "Leopard"],
+
+  correctAnswers: [
+    "ans3", // Canberra
+    "ans2", // William Shakespeare
+    "ans2", // 100°C
+    "ans3", // Jupiter
+    "ans2", // Isaac Newton
+    "ans3", // Nile
+    "ans2", // 1945
+    "ans2", // Carbon Dioxide
+    "ans2", // Dr. A.P.J. Abdul Kalam
+    "ans1", // Au
+    "ans2", // France
+    "ans3", // 7
+    "ans3", // Diamond
+    "ans1", // Neil Armstrong
+    "ans3", // 2
+    "ans2", // Punjab
+    "ans3", // Yen
+    "ans4", // Vitamin D
+    "ans3", // 11
+    "ans3", // Kidney
+    "ans1", // HyperText Transfer Protocol
+    "ans3", // Dr. Rajendra Prasad
+    "ans3", // Thermometer
+    "ans4", // Mars
+    "ans3", // Automated Teller Machine
+    "ans2", // Alexander Graham Bell
+    "ans4", // Nitrogen
+    "ans3", // 12
+    "ans3", // Atlantic
+    "ans2"  // Tiger
+  ]
+};
+if (sessionStorage.getItem('quizAnswers')) {
+    selectedAnswers = JSON.parse(sessionStorage.getItem('quizAnswers'));
+}
+
+const totalQuestions = 30;
+const TOTAL_TIME = 20 * 60;
+let timerInterval;
+let endTimestamp = Number(sessionStorage.getItem('quizEndTime'));
+
+if (endTimestamp) {
+    timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+}
+
+function updateTimer() {
+    const now = Date.now();
+    let timeLeft = Math.floor((endTimestamp - now) / 1000);
+    if (timeLeft < 0) timeLeft = 0;
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerDiv.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        alert("Time's up! Auto-submitting your answers.");
+        if (submitBtnElement) submitBtnElement.click();
+        sessionStorage.removeItem('quizEndTime');
+    }
+}
+
+nextBtnElement.onclick = () => { if (i < 29) { i++; renderData(i); } };
+prevBtnElement.onclick = () => { if (i > 0) { i--; renderData(i); } };
+clearBtnElement.onclick = () => {
+    selectedAnswers[i] = undefined;
+    sessionStorage.setItem('quizAnswers', JSON.stringify(selectedAnswers));
+    renderData(i);
+    updateSidebarColor();
+};
+
+function updateSidebarColor() {
+    sidebarButtons.forEach((btn, index) => {
+        if (selectedAnswers[index]) {
+            btn.style.backgroundColor = '#4CAF50';
+            btn.style.color = 'white';
+        } else {
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+        }
+    });
+}
+
+function renderData(index) {
+    if (index < 0 || index > 29) return;
+    quesElement.textContent = dataObject[`question${index + 1}`];
+
+    onlyAnsElement.innerHTML = `
+        <input class="inputBtn" type="radio" name="answer" value="ans1">1. ${dataObject[`option${index + 1}`][0]}<br>
+        <input class="inputBtn" type="radio" name="answer" value="ans2">2. ${dataObject[`option${index + 1}`][1]}<br>
+        <input class="inputBtn" type="radio" name="answer" value="ans3">3. ${dataObject[`option${index + 1}`][2]}<br>
+        <input class="inputBtn" type="radio" name="answer" value="ans4">4. ${dataObject[`option${index + 1}`][3]}`;
+
+    if (selectedAnswers[index]) {
+        const selected = onlyAnsElement.querySelector(`input[value="${selectedAnswers[index]}"]`);
+        if (selected) selected.checked = true;
+    }
+
+    document.querySelectorAll('.inputBtn').forEach(input => {
+        input.addEventListener('change', () => {
+            if (input.checked) {
+                selectedAnswers[index] = input.value;
+                sessionStorage.setItem('quizAnswers', JSON.stringify(selectedAnswers));
+                updateSidebarColor();
+            }
+        });
+    });
+
+    updateSidebarColor();
+    setRadioButtonsDisabled(nextBtnElement.disabled);
+}
+
+sidebarButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        i = index;
+        renderData(i);
+    });
+});
+
+function handleSubmit() {
+    submitBtnElement.addEventListener('click', () => {
+        const confirmSubmit = confirm("Are you sure you want to submit the quiz?");
+        if (!confirmSubmit) return;
+
+        let totalAttempted = 0;
+        let totalCorrect = 0;
+
+        selectedAnswers.forEach((ans, index) => {
+            if (ans !== undefined) {
+                totalAttempted++;
+                if (ans === dataObject.correctAnswers[index]) totalCorrect++;
+            }
+        });
+
+        nextBtnElement.disabled = true;
+        prevBtnElement.disabled = true;
+        clearBtnElement.disabled = true;
+        setSidebarButtonsDisabled(true);
+        setRadioButtonsDisabled(true);
+
+        submitDiv.innerHTML = `
+            <div class="result-box" style="margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 8px;">
+                <p><strong>Total Questions:</strong> ${totalQuestions}</p>
+                <p><strong>Attempted:</strong> ${totalAttempted}</p>
+                <p><strong>Correct:</strong> ${totalCorrect}</p>
+                <button class="start-again-btn" style="margin-top: 10px; padding: 6px 12px; background-color: #4CAF50; color: white; border: none; border-radius: 4px;">Start Again</button>
+            </div>`;
+
+        clearInterval(timerInterval);
+        sessionStorage.removeItem('quizAnswers');
+        sessionStorage.removeItem('quizEndTime');
+
+        document.querySelector('.start-again-btn').addEventListener('click', () => {
+            i = 0;
+            selectedAnswers = [];
+            sessionStorage.removeItem('quizAnswers');
+            sessionStorage.removeItem('quizEndTime');
+            renderData(i);
+            updateSidebarColor();
+
+            const newEndTime = Date.now() + TOTAL_TIME * 1000;
+            sessionStorage.setItem('quizEndTime', newEndTime);
+            endTimestamp = newEndTime;
+            timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+
+            submitDiv.innerHTML = `<button class="submit-btn">submit</button>`;
+            submitBtnElement = document.querySelector('.submit-btn');
+
+            nextBtnElement.disabled = false;
+            prevBtnElement.disabled = false;
+            clearBtnElement.disabled = false;
+            setSidebarButtonsDisabled(false);
+            setRadioButtonsDisabled(false);
+            handleSubmit();
+        });
+    });
+}
+
+if (!sessionStorage.getItem('quizAnswers') || !sessionStorage.getItem('quizEndTime')) {
+    nextBtnElement.disabled = true;
+    prevBtnElement.disabled = true;
+    clearBtnElement.disabled = true;
+    setSidebarButtonsDisabled(true);
+    setRadioButtonsDisabled(true);
+
+    submitDiv.innerHTML = `<button class="start-btn" style="padding: 8px 16px; font-size: 16px;">Start Quiz</button>`;
+
+    document.querySelector('.start-btn').addEventListener('click', () => {
+        const newEndTime = Date.now() + TOTAL_TIME * 1000;
+        sessionStorage.setItem('quizEndTime', newEndTime);
+        sessionStorage.setItem('quizAnswers', JSON.stringify([]));
+        endTimestamp = newEndTime;
+        selectedAnswers = [];
+
+        nextBtnElement.disabled = false;
+        prevBtnElement.disabled = false;
+        clearBtnElement.disabled = false;
+        setSidebarButtonsDisabled(false);
+        setRadioButtonsDisabled(false);
+
+        timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
+        renderData(i);
+        submitDiv.innerHTML = `<button class="submit-btn">submit</button>`;
+        submitBtnElement = document.querySelector('.submit-btn');
+        handleSubmit();
+    });
+} else {
+    renderData(i);
+    submitDiv.innerHTML = `<button class="submit-btn">submit</button>`;
+    submitBtnElement = document.querySelector('.submit-btn');
+    handleSubmit();
+}
+</script>
+</body>
+</html>
