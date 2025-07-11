@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+  
+  body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: powderblue;
+  }
+
+/* Main layout for quiz page */
+.home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: powderblue;
+    min-height: 100vh;
+}
+
+.main-div {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Header with timer and title */
+.header-div {
+    background-color: #1877f2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    color: white;
+}
+
+.title-div {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-para {
+    font-size: 22px;
+    text-align: center;
+}
+
+.timer-div {
+    flex: 1;
+    background-color: #c3cbd5;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Main section */
+.section-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Question and Answer side */
+.ansQues-div {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+
+/* Question text */
+.ques-div {
+    background-color: aliceblue;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Answer options */
+.ans-div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Answer radio options */
+.onlyAns-div {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.8;
+}
+
+/* Navigation buttons */
+.control-div {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #eee;
+}
+
+/* Navigation buttons */
+.nav-div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+/* Individual numbered buttons */
+.btn {
+    height: 35px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Submit button */
+.submit-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn {
+    height: 40px;
+    width: 120px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .section-div {
+        flex-direction: column;
+    }
+
+    .sidebar-div {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-div {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .title-para {
+        font-size: 18px;
+    }
+
+    .onlyAns-div {
+        font-size: 16px;
+    }
+
+    .control-btn {
+        font-size: 14px;
+    }
+
+    .nav-div {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+input[type="radio"]:disabled + label {
+    color: gray;
+    cursor: not-allowed;
+}
+
+
+/* index 0 */
+
+/* Reset and base styles */
+
+  
+  /* ---------- MAIN PAGE LAYOUT ---------- */
+  
+  .mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .pageDiv {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Header section */
+  .titleDiv {
+    background-color: #1877f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .titlePara {
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Link card */
+  .linkDiv {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .linkDiv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .linkPara {
+    font-size: 20px;
+  }
+  
+  /* Styled link */
+  #testLink {
+    color: #1877f2;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #eaf2ff;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  #testLink:hover {
+    background-color: #1877f2;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 500px) {
+    .titlePara {
+      font-size: 22px;
+    }
+  
+    .linkPara {
+      font-size: 18px;
+    }
+  
+    #testLink {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  }
+  
